@@ -11,6 +11,7 @@ def index():
 
     url = f'https://raw.githubusercontent.com/{repo}/main/{path}'
     response = requests.get(url)
+    print(response.text)  # Imprime el contenido del archivo para depuración
     lines = response.text.split('\n')
     line_content = lines[line_number - 1] if len(lines) >= line_number else 'Línea no encontrada'
 
