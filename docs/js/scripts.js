@@ -12,7 +12,7 @@ async function obtenerLinea(lineaNumero) {
 
 // Muestra la línea en el div con id "linea"
 async function mostrarLinea() {
-    const lineaNumero = 3; // Cambia este número para mostrar una línea diferente
+    const lineaNumero = 2; // Cambia este número para mostrar una línea diferente
     const linea = await obtenerLinea(lineaNumero);
     document.getElementById('linea').innerText = linea;
 }
