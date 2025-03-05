@@ -1,6 +1,6 @@
 // Función para obtener una línea específica de prueba.txt
 async function obtenerLinea(lineaNumero) {
-    const response = await fetch('docs/prueba.txt');
+    const response = await fetch('prueba.txt');
     const text = await response.text();
     const lineas = text.split('\n');
     if (lineas[lineaNumero - 1]) {
