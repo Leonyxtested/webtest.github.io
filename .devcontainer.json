@@ -9,10 +9,10 @@
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
-    "ms-python.python",
-    "ms-azuretools.vscode-docker"
+    "ms-python.python@2022.14.0",
+    "ms-azuretools.vscode-docker@1.16.0"
   ],
-  "postCreateCommand": "pip install flask requests",
+  "postCreateCommand": "pip install flask requests && pip show flask requests",
   "portsAttributes": {
     "5000": {
       "label": "Flask App",
