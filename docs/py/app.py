@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     repo = 'Leonyxtested/webtest.github.io'
-    path = 'docs/yourfile.txt'  # Cambia esto por la ruta de tu archivo
+    path = 'docs/prueba.txt'  # Cambia esto por la ruta de tu archivo
     line_number = 10  # Cambia esto por el número de la línea que quieres mostrar
 
     url = f'https://raw.githubusercontent.com/{repo}/main/{path}'
