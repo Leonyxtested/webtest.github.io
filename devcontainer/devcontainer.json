@@ -1,0 +1,24 @@
+{
+  "name": "Python 3",
+  "image": "mcr.microsoft.com/devcontainers/python:3.9",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-python.python@2022.14.0",
+    "ms-azuretools.vscode-docker@1.16.0"
+  ],
+  "postCreateCommand": "pip install flask requests && pip show flask requests",
+  "portsAttributes": {
+    "5000": {
+      "label": "Flask App",
+      "onAutoForward": "notify"
+    }
+  },
+  "forwardPorts": [5000],
+  "remoteUser": "vscode"
+}
