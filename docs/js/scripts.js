@@ -22,7 +22,7 @@ async function obtenerLineaAleatoria() {
     try {
         const response = await fetch(url);
         const text = await response.text();
-        const lineas = text.split('\n');
+        const lineas = text.split('\n').filter(linea => linea.trim() !== ''); // Filtra líneas vacías
         const totalLineas = lineas.length;
 
         if (totalLineas === 0) {
