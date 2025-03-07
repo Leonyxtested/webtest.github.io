@@ -1,12 +1,20 @@
 // Función para obtener una línea específica de prueba.txt
 async function obtenerLinea(lineaNumero) {
-    const response = await fetch('../../../languaje/prueba.txt');
-    const text = await response.text();
-    const lineas = text.split('\n');
-    if (lineas[lineaNumero - 1]) {
-        return lineas[lineaNumero - 1];
-    } else {
-        return 'Línea no encontrada';
+    try {
+        const response = await fetch('../../../languaje/prueba.txt');
+        if (!response.ok) {
+            throw new Error('Archivo no encontrado');
+        }
+        const text = await response.text();
+        const lineas = text.split('\n');
+        if (lineas[lineaNumero - 1]) {
+            return lineas[lineaNumero - 1];
+        } else {
+            return 'Línea no encontrada';
+        }
+    } catch (error) {
+        console.error('Error al obtener el archivo:', error);
+        return 'Error al obtener el archivo';
     }
 }
 
