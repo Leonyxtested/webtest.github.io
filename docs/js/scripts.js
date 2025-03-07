@@ -30,11 +30,12 @@ async function obtenerLineaAleatoria() {
         }
 
         const lineaAleatoria = Math.floor(Math.random() * totalLineas);
-        return lineas[lineaAleatoria];
-       
-        // Extraer el contenido entre comillas
+        let linea = lineas[lineaAleatoria];
+
+        // Extraer el contenido entre comillas antes de devolverlo
         const contenidoEntreComillas = linea.match(/"([^"]*)"/);
-        return contenidoEntreComillas ? contenidoEntreComillas[1] : 'No se encontró contenido entre comillas';
+        linea = contenidoEntreComillas ? contenidoEntreComillas[1] : 'No se encontró contenido entre comillas';
+        return linea;
     } catch (error) {
         console.error('Error al obtener el archivo:', error);
         return 'Error al obtener el archivo';
