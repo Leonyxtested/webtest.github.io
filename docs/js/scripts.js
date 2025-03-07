@@ -11,7 +11,7 @@ async function archivoExiste(url) {
 
 // Función para obtener una línea específica de prueba.txt
 async function obtenerLinea(lineaNumero) {
-    const url = '../../../languaje/prueba.txt';
+    const url = '../../languaje/prueba.txt';
     const existe = await archivoExiste(url);
     
     if (!existe) {
