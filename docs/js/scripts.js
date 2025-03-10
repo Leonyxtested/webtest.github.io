@@ -9,27 +9,6 @@ async function archivoExiste(url) {
     }
 }
 
-// Función para obtener la lista de archivos en una carpeta específica
-async function obtenerListaDeArchivos(carpeta) {
-    try {
-        const response = await fetch(carpeta);
-        if (!response.ok) {
-            throw new Error('Error al obtener la lista de archivos');
-        }
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(txt, 'text/txt');
-        const archivos = Array.from(doc.querySelectorAll('a'))
-            .map(a => a.getAttribute('href'))
-            .filter(href => href && href.endsWith('.txt'))
-            .map(href => carpeta + href);
-        return archivos;
-    } catch (error) {
-        console.error('Error al obtener la lista de archivos:', error);
-        return [];
-    }
-}
-
 // Función para obtener una línea aleatoria de un archivo específico
 async function obtenerLineaAleatoriaDeArchivo(url) {
     const existe = await archivoExiste(url);
@@ -64,11 +43,13 @@ async function obtenerLineaAleatoriaDeArchivo(url) {
 
 // Función para obtener una línea aleatoria de cualquiera de los archivos en una carpeta
 async function obtenerLineaAleatoria() {
-    const carpeta = 'languaje/';
-    const archivos = await obtenerListaDeArchivos(carpeta);
+    const carpeta = 'docs/languaje/';
+    const archivos = ['prueba.txt', 'prueba2.txt'].map(nombre => carpeta + nombre); // Lista predefinida de archivos
+
     if (archivos.length === 0) {
         return 'No se encontraron archivos en la carpeta';
     }
+
     const archivoAleatorio = archivos[Math.floor(Math.random() * archivos.length)];
     return await obtenerLineaAleatoriaDeArchivo(archivoAleatorio);
 }
