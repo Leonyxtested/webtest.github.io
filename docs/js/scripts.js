@@ -18,7 +18,7 @@ async function obtenerListaDeArchivos(carpeta) {
         }
         const html = await response.text();
         const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        const doc = parser.parseFromString(txt, 'text/txt');
         const archivos = Array.from(doc.querySelectorAll('a'))
             .map(a => a.getAttribute('href'))
             .filter(href => href && href.endsWith('.txt'))
