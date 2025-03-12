@@ -43,7 +43,7 @@ async function obtenerLineaAleatoriaDeArchivo(url) {
 
 // Función para obtener una línea aleatoria de cualquiera de los archivos en una carpeta
 async function obtenerLineaAleatoria() {
-    const url = 'docs/languaje/';
+    const url = 'languaje/';
     const archivos = ['prueba.txt', 'prueba2.txt']; // Lista predefinida de archivos
 
     if (archivos.length === 0) {
