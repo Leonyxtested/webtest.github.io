@@ -14,12 +14,12 @@ async function obtenerLineaAleatoriaDeArchivo(urlArchivo) {
     const existe = await archivoExiste(urlArchivo);
     
     if (!existe) {
-        console.error('Archivo no encontrado:', url);
+        console.error('Archivo no encontrado:', urlArchivo);
         return 'Archivo no encontrado';
     }
 
     try {
-        const response = await fetch(url);
+        const response = await fetch(urlArchivo);
         const text = await response.text();
         const lineas = text.split('\n').filter(linea => linea.trim() !== ''); // Filtra líneas vacías
         const totalLineas = lineas.length;
