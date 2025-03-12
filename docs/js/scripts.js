@@ -10,8 +10,8 @@ async function archivoExiste(url) {
 }
 
 // Función para obtener una línea aleatoria de un archivo específico
-async function obtenerLineaAleatoriaDeArchivo(url) {
-    const existe = await archivoExiste(url);
+async function obtenerLineaAleatoriaDeArchivo(urlArchivo) {
+    const existe = await archivoExiste(urlArchivo);
     
     if (!existe) {
         console.error('Archivo no encontrado:', url);
@@ -43,7 +43,7 @@ async function obtenerLineaAleatoriaDeArchivo(url) {
 
 // Función para obtener una línea aleatoria de cualquiera de los archivos en una carpeta
 async function obtenerLineaAleatoria() {
-    const url = 'languaje/';
+    const carpeta = 'languaje/';
     const archivos = ['prueba.txt', 'prueba2.txt']; // Lista predefinida de archivos
 
     if (archivos.length === 0) {
@@ -51,7 +51,8 @@ async function obtenerLineaAleatoria() {
     }
 
     const archivoAleatorio = archivos[Math.floor(Math.random() * archivos.length)];
-    return await obtenerLineaAleatoriaDeArchivo(archivoAleatorio);
+    const urlArchivo = carpeta + archivoAleatorio;
+    return await obtenerLineaAleatoriaDeArchivo(urlArchivo);
 }
 
 // Muestra una línea aleatoria en el div con id "linea"
