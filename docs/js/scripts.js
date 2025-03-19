@@ -59,6 +59,7 @@ async function obtenerLineaAleatoria() {
 async function mostrarLineaAleatoria() {
     const linea = await obtenerLineaAleatoria();
     document.getElementById('linea').innerText = linea;
+    document.getElementById('codigo').innerText = linea;
 }
 
 mostrarLineaAleatoria();
