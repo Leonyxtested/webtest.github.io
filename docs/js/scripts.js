@@ -61,7 +61,7 @@ async function obtenerLineaAleatoria() {
 
 // Muestra una línea aleatoria en el div con id "linea"
 async function mostrarLineaAleatoria() {
-    const linea = await obtenerLineaAleatoria();
+    const contenido = await obtenerLineaAleatoria();
     document.getElementById('linea').innerText = contenido.entreComillas;
     document.getElementById('codigo').innerText = contenido.fueraComillas;
 }
