@@ -33,8 +33,12 @@ async function obtenerLineaAleatoriaDeArchivo(urlArchivo) {
 
         // Extraer el contenido entre comillas antes de devolverlo
         const contenidoEntreComillas = linea.match(/"([^"]*)"/);
-        linea = contenidoEntreComillas ? contenidoEntreComillas[1] : 'No se encontró contenido entre comillas';
-        return linea;
+        const contenidoFueraComillas = linea.replace(/"[^"]*"/, '').trim();
+        const contenido = {
+            entreComillas: contenidoEntreComillas ? contenidoEntreComillas[1] : 'No se encontró contenido entre comillas',
+            fueraComillas: contenidoFueraComillas ? contenidoFueraComillas : 'No se encontró contenido fuera de las comillas'
+        };
+        return contenido;
     } catch (error) {
         console.error('Error al obtener el archivo:', error);
         return 'Error al obtener el archivo';
@@ -58,8 +62,8 @@ async function obtenerLineaAleatoria() {
 // Muestra una línea aleatoria en el div con id "linea"
 async function mostrarLineaAleatoria() {
     const linea = await obtenerLineaAleatoria();
-    document.getElementById('linea').innerText = linea;
-    document.getElementById('codigo').innerText = linea;
+    document.getElementById('linea').innerText = contenido.entreComillas;
+    document.getElementById('codigo').innerText = contenido.fueraComillas;
 }
 
 mostrarLineaAleatoria();
