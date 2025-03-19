@@ -37,3 +37,11 @@ footer {
     width: 100%;
     bottom: 0;
 }
+#codigo {
+    position: absolute; /* Posición absoluta */
+    left: 0; /* Alineado a la izquierda */
+    top: 50px; /* Ajusta según la posición vertical que desees */
+    width: 200px; /* Ancho deseado */
+    background-color: #f0f0f0; /* Color de fondo para visualizar mejor */
+    padding: 10px; /* Espaciado interno */
+}
