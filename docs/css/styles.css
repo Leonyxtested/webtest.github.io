@@ -37,3 +37,13 @@ footer {
     width: 100%;
     bottom: 0;
 }
+#contenedor-linea-codigo {
+    display: flex; /* Utiliza flexbox para alinear los elementos en la misma línea */
+}
+
+#linea, #codigo {
+    margin: 5px; /* Espaciado entre los elementos */
+    padding: 10px;
+    background-color: #f0f0f0; /* Color de fondo para visualizar mejor */
+    border: 1px solid #ccc; /* Borde para visualizar mejor */
+}
