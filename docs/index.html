@@ -19,7 +19,17 @@
         <div id="cuadro-texto">
             <textarea id="input-texto" rows="4" cols="50" placeholder="Escribe aquí..."></textarea>
         </div>
+        <!-- Botón de Enviar -->
+        <button id="btn-enviar">Enviar</button>
         <script src="js/scripts.js"></script>
+        <script>
+            document.getElementById('btn-enviar').addEventListener('click', function() {
+                // Recargar la página
+                location.reload();
+                // Limpiar el textarea
+                document.getElementById('input-texto').value = '';
+            });
+        </script>
     </main>
     <footer>
         <p>&copy; 2025 Mi Web Sencilla</p>
